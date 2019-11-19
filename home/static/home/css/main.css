@@ -1,0 +1,95 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto';
+}
+body{
+    overflow: hidden;
+}
+/* Globals */
+a, a:hover, a:active{
+    outline: none !important; 
+}
+/* =========================        The Top Search Bar       =============================*/
+#top-bar-search{
+    height: 60px;
+    background-color: #282828;
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 0;
+}
+/* The Top Bar Topic and Image */
+#top-bar-search img{
+    width: 3%;
+    float: left;
+    text-align: center;
+    margin-left: 10px;
+}
+#top-bar-search h3#topic-top-bar{
+    float: left;
+    width: 5%;
+    margin-top: 8px;
+    margin-left: 10px;
+    color: #fff;
+}
+/* The Top Bar Search and It's Button */
+#top-bar-search input{
+    background-color: #111;
+    border: 0;
+    width: 50%;
+    height: 70%;
+    color: #fff;
+    padding: 10px;
+}
+#top-bar-search #top-bar-search-btn{
+    color: gray;
+    background-color: #3a3a3a;
+    border: 0;
+    padding: 12px;
+    width: 5%;
+    cursor: pointer;
+}
+/* The Top Bar Loving Links */
+#top-bar-search a.top-bar-loving-link{
+    cursor: pointer;
+    color: #fff;
+    font-size: 22px;
+    padding-left: 20px;
+    padding-top: 6px;
+    margin-right: 25px;
+    float: right;
+}
+/* ====================================================================================== */
+/* =======================       Video Portfolio Section     ============================*/
+#video-portfolio{
+    color: #fff;
+    width: 100%;
+    height: 91.3%;
+    background-color: #1F1F1F;
+    padding: 20px;
+}
+/* One Video Port */
+#video-portfolio .one-video-port{
+    margin-left: 1%;
+    width: 23%;
+    display: inline-block;
+    margin-top: 2%;
+}
+#video-portfolio .one-video-port img{
+    width: 100%;
+    cursor: pointer;
+    transition: all ease-in-out 200ms;
+}
+#video-portfolio .one-video-port img:hover{
+    transform: scale(1.08);
+}
+#video-portfolio .one-video-port a{
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+}
+#video-portfolio .one-video-port p{
+    color: lightgray;
+    font-size: 12px;
+    text-decoration: none;
+}

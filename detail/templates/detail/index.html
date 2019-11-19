@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ video_object.title }} | WhoSangItBetter</title>
+    {% load static %}
+    <!-- The Favicon -->
+    <link rel="shortcut icon" type="image" href="{% static 'detail/images/favicon.png' %}" sizes="64x64"/>
+    <!-- The Related Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <!-- The Font Awesome Library -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- The Custom CSS -->
+    <link rel="stylesheet" href="{% static 'detail/css/detail.css' %}">
+</head>
+<body>
+    <!-- ============================     Top Bar Search Section ====================== -->
+    <section id="top-bar-search">
+        <!-- Topic Image -->
+        <img src="{% static 'detail/images/favicon.png' %}">
+        <h3 id="topic-top-bar">WhoSangItBetter</h3>
+
+        <!-- Search -->
+        <input type="text" placeholder="Search for WSIB Songs" onfocus="colorBorder(this);" onblur="uncolorBorder(this);">
+        <button id="top-bar-search-btn"><span class="fa fa-search"></span></button>
+
+        <!-- Loving Links -->
+        <a href="#" class="top-bar-loving-link"><span class="fa fa-music"></span></a>
+        <a href="#" class="top-bar-loving-link"><span class="fa fa-user"></span></a>
+    </section>
+    <!-- ============================     END : END: END: END: END ====================== -->
+    <!-- ================================================================================ -->
+    <!-- ==============================     One Video Section =========================== -->
+    <section id="one-video-section">
+        <video id="one-video-section-video" controls autoplay>
+            <source src="{{ video_object.video_source.url }}">
+        </video>
+        <h3 id="one-video-section-winner-h3">Winner</h3>
+        <a href="#" id="one-video-section-winner-a">🇩🇪</a>
+        <p class="one-video-section-p">Title: {{ video_object.title }}</a>
+        <p class="one-video-section-p">{{ video_object.no_youtube_views }} YouTube Views</a>
+        <p class="one-video-section-p">{{ video_object.no_votes }} Votes</a>
+    </section>
+    <!-- ============================     END : END: END: END: END ====================== -->
+    <!-- ================================================================================ -->
+    <!-- ===============================     Vote For Section =========================== -->
+    <section id="vote-for-section">
+        <div id="vote-for-nations">
+            {% for nation in video_object.nations.all %}
+            <a href="#" class="select-nation" id="select-nation-{{ forloop.counter }}" onclick="selectNation{{ forloop.counter }}(this, '{{nation.pro_name}}')">{{ nation.flag_emoji }}</a>
+            {% endfor %}
+        </div>
+        <input type="hidden" id="nation-voted-pro-name">
+        {% csrf_token %}
+        <button id="vote-btn" onclick="voteSubmission();">Vote Now</button>
+    </section>
+    <!-- ============================     END : END: END: END: END ====================== -->
+    <!-- ================================================================================ -->
+    <!-- ==============================     The Chart Section =========================== -->
+    <section id="chart-section">
+        <h3>People's Opinion</h3>
+        <div id="chart-section-pie">
+            <canvas id="myPie" width="400" height="400"></canvas>
+        </div>
+        <div id="chart-section-bar">
+            <canvas id="myBar" width="400" height="400"></canvas>
+        </div>
+        <div id="chart-section-polar">
+            <canvas id="myPolar" width="400" height="400"></canvas>
+        </div>
+    </section>
+    <!-- ============================     END : END: END: END: END ====================== -->
+    <!-- ================================================================================ -->
+    <!-- =============================  The Comments Section ============================ -->
+    <!-- <section id="comments">
+        <h3>Comments 1204,</h3>
+    </section> -->
+    <!-- ============================     END : END: END: END: END ====================== -->
+    <!-- ================================================================================ -->
+    <!-- The Chart JS library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <!-- Jquery -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+    <!-- Custom Javascript variables need data from database -->
+    <script>
+        let videoPk = {{ video_object.pk }};
+        let chartDataSet = {{video_object.vote_statement | safe }};
+    </script>
+    <!-- The Custom Javascript File -->
+    <script src="{% static 'detail/js/detail.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto';
+}
+body{
+    overflow-x: hidden;
+    background-color: #1F1F1F;
+}
+/* Globals */
+a, a:hover, a:active{
+    outline: none !important; 
+}
+/* =========================        The Top Search Bar       =============================*/
+#top-bar-search{
+    height: 60px;
+    background-color: #282828;
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 0;
+}
+/* The Top Bar Topic and Image */
+#top-bar-search img{
+    width: 3%;
+    float: left;
+    text-align: center;
+    margin-left: 10px;
+}
+#top-bar-search h3#topic-top-bar{
+    float: left;
+    width: 5%;
+    margin-top: 8px;
+    margin-left: 10px;
+    color: #fff;
+}
+/* The Top Bar Search and It's Button */
+#top-bar-search input{
+    background-color: #111;
+    border: 0;
+    width: 50%;
+    height: 70%;
+    color: #fff;
+    padding: 10px;
+}
+#top-bar-search #top-bar-search-btn{
+    color: gray;
+    background-color: #3a3a3a;
+    border: 0;
+    padding: 12px;
+    width: 5%;
+    cursor: pointer;
+}
+/* The Top Bar Loving Links */
+#top-bar-search a.top-bar-loving-link{
+    cursor: pointer;
+    color: #fff;
+    font-size: 22px;
+    padding-left: 20px;
+    padding-top: 6px;
+    margin-right: 25px;
+    float: right;
+}
+
+/* ======================================== VOTE FOR =================================== */
+#vote-for-section{
+    background-color: #1F1F1F;
+    text-align: center;
+
+}
+#vote-for-section h3#vote-for{
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+    padding-right: 30px;
+    display: inline-block;
+    margin-top: 2%;
+    color: #fff;
+}
+#vote-for-section div#vote-for-nations{
+    width: 100%;
+    text-align: center;
+}
+#vote-for-section a{
+    text-align: center;
+    margin-left: 10px;
+    text-decoration: none;
+    transition: all ease-in-out 200ms;
+    border-bottom: 2px solid white;
+    font-size: 100px;
+    color: #fff;
+}
+
+/* The Vote BTN */
+#vote-for-section #vote-btn{
+    border: 0;
+    margin-top: 1%;
+    background-color: rgb(250, 65, 65);
+    color: #fff;
+    text-transform: uppercase;
+    transition: all ease-in-out 200ms;
+    padding: 14px;
+    cursor: pointer;
+}
+#vote-for-section #vote-btn:hover{
+    background-color: #FF0000;
+}
+/* ====================================================================================== */
+/* ======================================== ONE VIDEO =================================== */
+#one-video-section{
+    color: #fff;
+    width: 100%;
+    background-color: #1F1F1F;
+    padding: 20px;
+    text-align: center;
+    height: 42%;
+}
+#one-video-section video{
+    width: 50%;
+    float: left;
+}
+/* One Video Text Stuff */
+#one-video-section #one-video-section-winner-h3{
+    font-size: 32px;
+}
+#one-video-section #one-video-section-winner-a{
+    font-size: 100px;
+    text-decoration: none;
+}
+#one-video-section .one-video-section-p{
+    font-size: 22px;
+    margin-top: 5px;
+}
+/* ====================================================================================== */
+/* ===================================== Chart Section ================================== */
+#chart-section{
+    margin-top: 0;
+}
+#chart-section h3{
+    margin-left: 24px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+/* The Different Charts */
+#chart-section #chart-section-pie{
+    width: 32%;
+    background-color: rgb(22, 22, 22);
+    float: left;
+    margin-left: 2%;
+    cursor: pointer;
+}
+#chart-section #chart-section-bar{
+    width: 32%;
+    background-color: rgb(22, 22, 22);
+    float: left;
+    cursor: pointer;
+}
+#chart-section #chart-section-polar{
+    width: 32%;
+    background-color: rgb(22, 22, 22);
+    float: left;
+    cursor: pointer;
+}
