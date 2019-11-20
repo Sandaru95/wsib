@@ -1,7 +1,7 @@
 *{
     padding: 0;
     margin: 0;
-    font-family: 'Roboto';
+    font-family: Arial, Helvetica, sans-serif;
 }
 body{
     overflow-x: hidden;
@@ -34,6 +34,9 @@ a, a:hover, a:active{
     color: #fff;
 }
 /* The Top Bar Search and It's Button */
+#top-bar-search #top-bar-search-topic{
+    cursor: pointer;   
+}
 #top-bar-search input{
     background-color: #111;
     border: 0;
@@ -65,7 +68,7 @@ a, a:hover, a:active{
 #vote-for-section{
     background-color: #1F1F1F;
     text-align: center;
-
+    display: none;
 }
 #vote-for-section h3#vote-for{
     width: 100%;
@@ -114,7 +117,7 @@ a, a:hover, a:active{
     text-align: center;
     height: 42%;
 }
-#one-video-section video{
+#one-video-section video, #one-video-section iframe{
     width: 50%;
     float: left;
 }

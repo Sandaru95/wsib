@@ -6,8 +6,6 @@
     {% load static %}
     <!-- The Favicon -->
     <link rel="shortcut icon" type="image" href="{% static 'home/images/favicon.png' %}" sizes="64x64"/>
-    <!-- The Related Google Font -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <!-- The Font Awesome Library -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- The Custom CSS -->
@@ -17,8 +15,10 @@
     <!-- ============================     Top Bar Search Section ====================== -->
     <section id="top-bar-search">
         <!-- Topic Image -->
-        <img src="{% static 'home/images/favicon.png' %}">
-        <h3 id="topic-top-bar">WhoSangItBetter</h3>
+        <div id="top-bar-search-topic" onclick="navigateToHome();">
+            <img src="{% static 'home/images/favicon.png' %}">
+            <h3 id="topic-top-bar">WhoSangItBetter</h3>
+        </div>
 
         <!-- Search -->
         <input type="text" placeholder="Search for WSIB Songs" onfocus="colorBorder(this);" onblur="uncolorBorder(this);">
@@ -41,130 +41,15 @@
         ">
             <img src="{{ video.thumbnail.url }}">
             <a href="#">{{ video.title }}</a>
-            <p>100 Votes / {{ video.no_youtube_views }} Views</p>
+            <p>{{ video.no_votes }} Votes / {{ video.no_youtube_views }} Views</p>
             <p>
                 {% for nation in video.nations.all %}
                 {{ nation.flag_emoji }}
                 {% endfor %}
             </p>
-            <p>Winner: 🇮🇹</p>
+            <p>Winner: {{ video.winning_nation.flag_emoji }}</p>
         </div>
         {% endfor %}
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_1.jpg' %}">
-            <a href="#">WhoSangItBetter: Taki Taki</a>
-            <p>100 Votes / 1.8k Views</p>
-            <p>🇮🇳 🇺🇸 🇮🇹 🇦🇷 🇩🇪 🇨🇴</p>
-            <p>Winner: 🇮🇹</p>
-        </div>
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_2.jpg' %}">
-            <a href="#">WhoSangItBetter: Shape Of You</a>
-            <p>2350 Votes / 55.1k Views</p>
-            <p>🇺🇸 🇮🇩 🇮🇹 🇱🇰 🇬🇧 🇹🇭</p>
-            <p>Winner: 🇱🇰</p>
-        </div>
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_1.jpg' %}">
-            <a href="#">WhoSangItBetter: Taki Taki</a>
-            <p>100 Votes / 1.8k Views</p>
-            <p>🇮🇳 🇺🇸 🇮🇹 🇦🇷 🇩🇪 🇨🇴</p>
-            <p>Winner: 🇮🇹</p>
-        </div>
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_2.jpg' %}">
-            <a href="#">WhoSangItBetter: Shape Of You</a>
-            <p>2350 Votes / 55.1k Views</p>
-            <p>🇺🇸 🇮🇩 🇮🇹 🇱🇰 🇬🇧 🇹🇭</p>
-            <p>Winner: 🇱🇰</p>
-        </div>
-        <!-- One Row -->
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_1.jpg' %}">
-            <a href="#">WhoSangItBetter: Taki Taki</a>
-            <p>100 Votes / 1.8k Views</p>
-            <p>🇮🇳 🇺🇸 🇮🇹 🇦🇷 🇩🇪 🇨🇴</p>
-            <p>Winner: 🇮🇹</p>
-        </div>
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_2.jpg' %}">
-            <a href="#">WhoSangItBetter: Shape Of You</a>
-            <p>2350 Votes / 55.1k Views</p>
-            <p>🇺🇸 🇮🇩 🇮🇹 🇱🇰 🇬🇧 🇹🇭</p>
-            <p>Winner: 🇱🇰</p>
-        </div>
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_1.jpg' %}">
-            <a href="#">WhoSangItBetter: Taki Taki</a>
-            <p>100 Votes / 1.8k Views</p>
-            <p>🇮🇳 🇺🇸 🇮🇹 🇦🇷 🇩🇪 🇨🇴</p>
-            <p>Winner: 🇮🇹</p>
-        </div>
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_2.jpg' %}">
-            <a href="#">WhoSangItBetter: Shape Of You</a>
-            <p>2350 Votes / 55.1k Views</p>
-            <p>🇺🇸 🇮🇩 🇮🇹 🇱🇰 🇬🇧 🇹🇭</p>
-            <p>Winner: 🇱🇰</p>
-        </div>
-        <!-- One Row -->
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_1.jpg' %}">
-            <a href="#">WhoSangItBetter: Taki Taki</a>
-            <p>100 Votes / 1.8k Views</p>
-            <p>🇮🇳 🇺🇸 🇮🇹 🇦🇷 🇩🇪 🇨🇴</p>
-            <p>Winner: 🇮🇹</p>
-        </div>
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_2.jpg' %}">
-            <a href="#">WhoSangItBetter: Shape Of You</a>
-            <p>2350 Votes / 55.1k Views</p>
-            <p>🇺🇸 🇮🇩 🇮🇹 🇱🇰 🇬🇧 🇹🇭</p>
-            <p>Winner: 🇱🇰</p>
-        </div>
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_1.jpg' %}">
-            <a href="#">WhoSangItBetter: Taki Taki</a>
-            <p>100 Votes / 1.8k Views</p>
-            <p>🇮🇳 🇺🇸 🇮🇹 🇦🇷 🇩🇪 🇨🇴</p>
-            <p>Winner: 🇮🇹</p>
-        </div>
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_2.jpg' %}">
-            <a href="#">WhoSangItBetter: Shape Of You</a>
-            <p>2350 Votes / 55.1k Views</p>
-            <p>🇺🇸 🇮🇩 🇮🇹 🇱🇰 🇬🇧 🇹🇭</p>
-            <p>Winner: 🇱🇰</p>
-        </div>
-        <!-- One Row -->
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_1.jpg' %}">
-            <a href="#">WhoSangItBetter: Taki Taki</a>
-            <p>100 Votes / 1.8k Views</p>
-            <p>🇮🇳 🇺🇸 🇮🇹 🇦🇷 🇩🇪 🇨🇴</p>
-            <p>Winner: 🇮🇹</p>
-        </div>
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_2.jpg' %}">
-            <a href="#">WhoSangItBetter: Shape Of You</a>
-            <p>2350 Votes / 55.1k Views</p>
-            <p>🇺🇸 🇮🇩 🇮🇹 🇱🇰 🇬🇧 🇹🇭</p>
-            <p>Winner: 🇱🇰</p>
-        </div>
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_1.jpg' %}">
-            <a href="#">WhoSangItBetter: Taki Taki</a>
-            <p>100 Votes / 1.8k Views</p>
-            <p>🇮🇳 🇺🇸 🇮🇹 🇦🇷 🇩🇪 🇨🇴</p>
-            <p>Winner: 🇮🇹</p>
-        </div>
-        <div class="one-video-port">
-            <img src="{% static 'home/images/home_portfolio/port_2.jpg' %}">
-            <a href="#">WhoSangItBetter: Shape Of You</a>
-            <p>2350 Votes / 55.1k Views</p>
-            <p>🇺🇸 🇮🇩 🇮🇹 🇱🇰 🇬🇧 🇹🇭</p>
-            <p>Winner: 🇱🇰</p>
-        </div>
     </section>
     <!-- The Custom Javascript File -->
     <script src="{% static 'home/js/main.js' %}"></script>

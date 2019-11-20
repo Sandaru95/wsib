@@ -16,5 +16,7 @@ class VoteView(generic.View):
         the_vote_statement = eval(video_object.vote_statement)
         the_vote_statement[request.POST['nation_voted']] = (the_vote_statement[request.POST['nation_voted']] + 1)
         video_object.vote_statement = the_vote_statement
+        video_object.no_votes = (video_object.no_votes + 1)
+        video_object.calculate_winning_nation()
         video_object.save()
         return HttpResponse('Success!')

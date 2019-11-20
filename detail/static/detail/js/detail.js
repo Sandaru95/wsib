@@ -1,5 +1,8 @@
-
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Search Box ====================================== */
+/* The Navigating to Home function when clicking search topic */
+function navigateToHome(){
+    window.location.assign('/home/');
+}
 /* Search Box On Click Border and Blur Border Out Functions */
 function colorBorder(theInput){
     theInput.style.border = '0.5px solid #1C62B9';
@@ -223,6 +226,18 @@ var myChart = new Chart(ctxForPolar, {
 
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< VOTE NOW BUTTON ====================================== */
+/* Checking if User has voted previously if so not giving chance */
+function checkIfUserHasVoted(){
+    console.log('Checking The User');
+    let hasVoted = false;
+    let browserSessions = window.sessionStorage;
+    if (`wsib${videoPk}` in browserSessions){
+        document.getElementById('vote-for-section').style.display = 'none';
+    }else{
+        document.getElementById('vote-for-section').style.display = 'block';
+    }
+}
+
 function voteSubmission(){
     console.log('() fired!');
     let nation_voted = document.getElementById('nation-voted-pro-name').value;
@@ -234,7 +249,16 @@ function voteSubmission(){
             'csrfmiddlewaretoken': $("input[name='csrfmiddlewaretoken']").val()
         },
         success: function (json) {
+            Swal.fire(
+                'Voted!',
+                'Success in voting!',
+                'success'
+            )
             console.log(json);
+            /* Making the voting section hidden */
+            document.getElementById('vote-for-section').style.display = 'none';
+            // Sending voted signal to locl Database 
+            sessionStorage.setItem(`wsib${videoPk}`, `wsib${videoPk}`);
         }
     });
 }

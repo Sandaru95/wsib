@@ -6,19 +6,19 @@
     {% load static %}
     <!-- The Favicon -->
     <link rel="shortcut icon" type="image" href="{% static 'detail/images/favicon.png' %}" sizes="64x64"/>
-    <!-- The Related Google Font -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <!-- The Font Awesome Library -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- The Custom CSS -->
     <link rel="stylesheet" href="{% static 'detail/css/detail.css' %}">
 </head>
-<body>
+<body onload="checkIfUserHasVoted();">
     <!-- ============================     Top Bar Search Section ====================== -->
     <section id="top-bar-search">
         <!-- Topic Image -->
-        <img src="{% static 'detail/images/favicon.png' %}">
-        <h3 id="topic-top-bar">WhoSangItBetter</h3>
+        <div id="top-bar-search-topic" onclick="navigateToHome();">
+            <img src="{% static 'detail/images/favicon.png' %}">
+            <h3 id="topic-top-bar">WhoSangItBetter</h3>
+        </div>
 
         <!-- Search -->
         <input type="text" placeholder="Search for WSIB Songs" onfocus="colorBorder(this);" onblur="uncolorBorder(this);">
@@ -32,11 +32,17 @@
     <!-- ================================================================================ -->
     <!-- ==============================     One Video Section =========================== -->
     <section id="one-video-section">
+        {% if video_object.video_source %}
         <video id="one-video-section-video" controls autoplay>
             <source src="{{ video_object.video_source.url }}">
         </video>
+        {% else %}
+        <div id="one-video-section-video" >
+            {{ video_object.youtube_embed_text|safe }}
+        </div>
+        {% endif %}
         <h3 id="one-video-section-winner-h3">Winner</h3>
-        <a href="#" id="one-video-section-winner-a">🇩🇪</a>
+        <a href="#" id="one-video-section-winner-a">{{ video_object.winning_nation.flag_emoji }}</a>
         <p class="one-video-section-p">Title: {{ video_object.title }}</a>
         <p class="one-video-section-p">{{ video_object.no_youtube_views }} YouTube Views</a>
         <p class="one-video-section-p">{{ video_object.no_votes }} Votes</a>
@@ -78,12 +84,11 @@
     <!-- ============================     END : END: END: END: END ====================== -->
     <!-- ================================================================================ -->
     <!-- The Chart JS library -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="{% static 'detail/js/chart.js' %}"></script>
     <!-- Jquery -->
-    <script
-        src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin="anonymous"></script>
+    <script src="{% static 'detail/js/jquery.js' %}"></script>
+    <!-- Sweet alert 2 js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <!-- Custom Javascript variables need data from database -->
     <script>
         let videoPk = {{ video_object.pk }};
